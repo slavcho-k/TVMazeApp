@@ -50,6 +50,7 @@
             this.Controls.Add(this.backBtn);
             this.Name = "SearchForm";
             this.Text = "SearchForm";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.SearchForm_Paint);
             this.ResumeLayout(false);
 
         }
