@@ -1,0 +1,14 @@
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\bin\Debug\TVMazeApp.exe.config
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\bin\Debug\TVMazeApp.exe
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\bin\Debug\TVMazeApp.pdb
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.csproj.AssemblyReference.cache
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.Form1.resources
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.Properties.Resources.resources
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.csproj.GenerateResource.cache
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.csproj.CoreCompileInputs.cache
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.exe
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.pdb
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.SearchForm.resources
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.FavoritesForm.resources
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.RecentForm.resources
