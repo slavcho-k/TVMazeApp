@@ -90,18 +90,26 @@ namespace TVMazeApp
         {
             dataGridView1.AutoGenerateColumns = false;
 
+            dataGridView1.Columns.Add("ID", "ID");
             dataGridView1.Columns.Add("Title", "Title");
-            dataGridView1.Columns.Add("Score", "Score");
-            dataGridView1.Columns.Add("Description", "Description");
-            dataGridView1.Columns["Score"].Width = 50;
+            dataGridView1.Columns.Add("Rating", "Rating");
+            dataGridView1.Columns.Add("Premiered", "Premiered");
+            dataGridView1.Columns.Add("Ended", "Ended");
+            dataGridView1.Columns["ID"].Width = 50;
+            dataGridView1.Columns["Title"].Width = 75;
+            dataGridView1.Columns["Rating"].Width = 25;
+            dataGridView1.Columns["Premiered"].Width = 35;
+            dataGridView1.Columns["Ended"].Width = 75;
 
             foreach (Show show in shows)
             {
                 int rowIndex = dataGridView1.Rows.Add();
 
+                dataGridView1.Rows[rowIndex].Cells["ID"].Value = show.id; 
                 dataGridView1.Rows[rowIndex].Cells["Title"].Value = show.title;
-                dataGridView1.Rows[rowIndex].Cells["Score"].Value = show.rating.ToString();
-                dataGridView1.Rows[rowIndex].Cells["Description"].Value = show.description;
+                dataGridView1.Rows[rowIndex].Cells["Rating"].Value = show.rating.ToString();
+                dataGridView1.Rows[rowIndex].Cells["Premiered"].Value = show.premiered;
+                dataGridView1.Rows[rowIndex].Cells["Ended"].Value = show.ended;
             }
 
             PopulateAllRows();

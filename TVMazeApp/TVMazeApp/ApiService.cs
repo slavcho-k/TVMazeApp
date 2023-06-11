@@ -40,24 +40,10 @@ namespace TVMazeApp
             int id = (int)obj["show"]["id"];
             string title = obj["show"]["name"].ToString();
             double rating = (float)obj["score"];
-            string description;
-            string img;
-            JToken descToken = obj.SelectToken("show.summary");
-            JToken imageToken = obj.SelectToken("show.image.medium");
-
-            if (descToken != null) 
-            { 
-                description = descToken.ToString(); 
-                description = Regex.Replace(description, @"<\/?p>|<\/?b>", "");
-            } else
-            {
-                description = "";
-            }
-            
-            if (imageToken != null && imageToken.HasValues) { img = imageToken.ToString(); }
-            else { img = "https://i.stack.imgur.com/mwFzF.png"; }
-
-            return new Show(id, title, rating, description, img);
+            string premiered = obj["show"]["premiered"].ToString();
+            string ended = obj["show"]["ended"].ToString();
+         
+            return new Show(id, title, rating, premiered, ended);
         }
     }
 }
