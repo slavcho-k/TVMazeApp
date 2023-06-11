@@ -24,5 +24,15 @@ namespace TVMazeApp
             g.FillEllipse(b, center.X - size, center.Y - size, size * 2, size * 2);
             b.Dispose();
         }
+
+        public void Pulse()
+        {
+            switch(size)
+            {
+                case 10: size = 15; break;
+                case 15: size = 20; break;
+                default: size = 10; break;
+            }
+        }
     }
 }

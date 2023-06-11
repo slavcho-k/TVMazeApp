@@ -28,5 +28,18 @@ namespace TVMazeApp
                 ball.Draw(g);
             }
         }
+
+        public void Pulse()
+        {
+            foreach(Ball ball in balls)
+            {
+                ball.Pulse();
+            }
+        }
+
+        public void RemoveAll()
+        {
+            balls = new List<Ball>();
+        }
     }
 }

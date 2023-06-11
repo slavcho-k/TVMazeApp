@@ -12,3 +12,6 @@ C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.pdb
 C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.SearchForm.resources
 C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.FavoritesForm.resources
 C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.RecentForm.resources
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Slavcho\Desktop\TVMazeApp\TVMazeApp\TVMazeApp\obj\Debug\TVMazeApp.csproj.CopyComplete

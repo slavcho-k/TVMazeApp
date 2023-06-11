@@ -42,7 +42,7 @@ namespace TVMazeApp
             if (string.IsNullOrEmpty(errorProvider1.GetError(searchTb)))
             {
                 Hide();
-                SearchForm form2 = new SearchForm();
+                SearchForm form2 = new SearchForm(searchTb.Text);
                 form2.Closed += (s, args) => Close();
                 form2.Show();
             }
