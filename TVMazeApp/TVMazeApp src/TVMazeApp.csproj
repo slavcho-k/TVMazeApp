@@ -74,7 +74,7 @@
       <DependentUpon>DetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Episode.cs" />
-    <Compile Include="Classes\Favorites.cs" />
+    <Compile Include="Classes\FavoritesAndWatchlist.cs" />
     <Compile Include="Forms\FavoritesForm.cs">
       <SubType>Form</SubType>
     </Compile>

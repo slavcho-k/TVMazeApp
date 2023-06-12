@@ -169,6 +169,7 @@
             this.addToFBtn.TabIndex = 13;
             this.addToFBtn.Text = "Add to favorites";
             this.addToFBtn.UseVisualStyleBackColor = true;
+            this.addToFBtn.Click += new System.EventHandler(this.addToFBtn_Click);
             // 
             // addToWlBtn
             // 
@@ -178,6 +179,7 @@
             this.addToWlBtn.TabIndex = 14;
             this.addToWlBtn.Text = "Add to watchlist";
             this.addToWlBtn.UseVisualStyleBackColor = true;
+            this.addToWlBtn.Click += new System.EventHandler(this.addToWlBtn_Click);
             // 
             // DetailsForm
             // 

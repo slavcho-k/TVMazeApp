@@ -42,5 +42,10 @@ namespace TVMazeApp
             if (premiered == null || premiered.Length == 0) { this.premiered = "Info not available"; }
             else { this.premiered = premiered; }
         }
+
+        public override string ToString()
+        {
+            return $"{id} - {title}";
+        }
     }
 }

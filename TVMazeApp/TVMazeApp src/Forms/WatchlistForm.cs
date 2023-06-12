@@ -12,9 +12,14 @@ namespace TVMazeApp
 {
     public partial class WatchlistForm : Form
     {
+        List<ShowDetails> watchList;
+        List<ShowDetails> watchedList;
+
         public WatchlistForm()
         {
             InitializeComponent();
+            toWatchLb.Font = new Font(toWatchLb.Font.FontFamily, 11);
+            watchedLb.Font = new Font(toWatchLb.Font.FontFamily, 11);
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -23,6 +28,75 @@ namespace TVMazeApp
             Form1 form2 = new Form1();
             form2.Closed += (s, args) => Close();
             form2.Show();
+        }
+
+        private void WatchlistForm_Load(object sender, EventArgs e)
+        {
+            watchList = FavoritesAndWatchlist.WATCHLIST;
+            watchedList = FavoritesAndWatchlist.WATCHEDLIST;
+
+            foreach(ShowDetails show in watchList)
+            {
+                toWatchLb.Items.Add(show);
+            }
+
+            foreach(ShowDetails show in watchedList)
+            {
+                watchedLb.Items.Add(show);
+            }
+        }
+
+        private void rightBtn_Click(object sender, EventArgs e)
+        {
+            if(toWatchLb.SelectedIndex != -1)
+            {
+                ShowDetails selected = toWatchLb.SelectedItem as ShowDetails;
+                toWatchLb.Items.Remove(selected);
+                watchedLb.Items.Add(selected);
+
+                FavoritesAndWatchlist.WATCHLIST.Remove(selected);
+                FavoritesAndWatchlist.WATCHEDLIST.Add(selected);
+            }
+        }
+
+        private void leftBtn_Click(object sender, EventArgs e)
+        {
+            if (watchedLb.SelectedIndex != -1)
+            {
+                ShowDetails selected = watchedLb.SelectedItem as ShowDetails;
+                watchedLb.Items.Remove(selected);
+                toWatchLb.Items.Add(selected);
+
+                FavoritesAndWatchlist.WATCHEDLIST.Remove(selected);
+                FavoritesAndWatchlist.AddShowToWatchlist(selected);
+            }
+        }
+
+        private void toWatchLb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(toWatchLb.SelectedIndex != -1) { watchedLb.ClearSelected(); }
+        }
+
+        private void watchedLb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(watchedLb.SelectedIndex != -1) { toWatchLb.ClearSelected(); }
+        }
+
+        private void removeBtn_Click(object sender, EventArgs e)
+        {
+            if (toWatchLb.SelectedIndex != -1)
+            {
+                ShowDetails selected = toWatchLb.SelectedItem as ShowDetails;
+                toWatchLb.Items.Remove(selected);
+                FavoritesAndWatchlist.WATCHLIST.Remove(selected);
+            }
+
+            if(watchedLb.SelectedIndex != -1)
+            {
+                ShowDetails selected = watchedLb.SelectedItem as ShowDetails;
+                watchedLb.Items.Remove(selected);
+                FavoritesAndWatchlist.WATCHEDLIST.Remove(selected);
+            }
         }
     }
 }

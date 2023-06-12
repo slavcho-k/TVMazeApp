@@ -160,5 +160,15 @@ namespace TVMazeApp
                 episodesLb.Items.Add(episode);
             }
         }
+
+        private void addToFBtn_Click(object sender, EventArgs e)
+        {
+            FavoritesAndWatchlist.AddShowToFavorites(showDetails);
+        }
+
+        private void addToWlBtn_Click(object sender, EventArgs e)
+        {
+            FavoritesAndWatchlist.AddShowToWatchlist(showDetails);
+        }
     }
 }
