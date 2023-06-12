@@ -39,7 +39,7 @@
             // backBtn
             // 
             this.backBtn.Location = new System.Drawing.Point(9, 2);
-            this.backBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.backBtn.Margin = new System.Windows.Forms.Padding(2);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(91, 23);
             this.backBtn.TabIndex = 0;
@@ -69,6 +69,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(576, 324);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // SearchForm
             // 
@@ -79,7 +80,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.loadingLabel);
             this.Controls.Add(this.backBtn);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SearchForm";
             this.Text = "SearchForm";
             this.Load += new System.EventHandler(this.SearchForm_Load);

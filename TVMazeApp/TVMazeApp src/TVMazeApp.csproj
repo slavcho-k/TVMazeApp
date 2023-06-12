@@ -66,6 +66,12 @@
   <ItemGroup>
     <Compile Include="ApiService.cs" />
     <Compile Include="Ball.cs" />
+    <Compile Include="DetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailsForm.Designer.cs">
+      <DependentUpon>DetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FavoritesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,10 @@
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Show.cs" />
+    <Compile Include="ShowDetails.cs" />
+    <EmbeddedResource Include="DetailsForm.resx">
+      <DependentUpon>DetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FavoritesForm.resx">
       <DependentUpon>FavoritesForm.cs</DependentUpon>
     </EmbeddedResource>

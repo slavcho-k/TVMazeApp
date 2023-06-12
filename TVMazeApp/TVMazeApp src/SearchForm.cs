@@ -15,10 +15,10 @@ namespace TVMazeApp
     {
         Scene scene;
         int ticks;
-        int secs;
         List<Show> shows;
         ApiService apiService;
         string searchQuery;
+        string id;
 
         public SearchForm(string searchQuery)
         {
@@ -30,7 +30,6 @@ namespace TVMazeApp
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             GenerateBalls();
             DoubleBuffered = true;
-            secs = 0;
             timer1.Start();
         }
 
@@ -61,7 +60,6 @@ namespace TVMazeApp
         private void timer1_Tick(object sender, EventArgs e)
         {
             ticks++;
-            secs++;
             if (ticks == 2)
             {
                 scene.Pulse();
@@ -134,6 +132,24 @@ namespace TVMazeApp
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 row.ReadOnly = true;
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridView dataGridView = (DataGridView)sender;
+                DataGridViewCell idCell = dataGridView.Rows[e.RowIndex].Cells["ID"];
+
+                if (idCell.Value != null) 
+                { 
+                    id = idCell.Value.ToString();
+                    Hide();
+                    DetailsForm form2 = new DetailsForm(id, searchQuery);
+                    form2.Closed += (s, args) => Close();
+                    form2.Show();
+                }
             }
         }
     }
