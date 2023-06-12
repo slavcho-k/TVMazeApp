@@ -16,28 +16,30 @@ namespace TVMazeApp
     public partial class DetailsForm : Form
     {
         ShowDetails showDetails;
+        List<CastMember> castMembers;
+        List<Episode> episodes;
         Scene scene;
         string id;
         string searchQuery;
         int ticks;
+        ApiService apiService;
 
         public DetailsForm(string id, string searchQuery)
         {
             InitializeComponent();
             scene = new Scene();
-            this.DoubleBuffered = true;
+            apiService = new ApiService();
+            DoubleBuffered = true;
             GenerateBalls();
             ticks = 0;
+            SetVisibility(false);
             loadingLabel.Text = "Loading";
-            langLabel.Visible = false;
-            premieredLabel.Visible = false;
-            summaryBox.Visible = false;
-            summaryBox.Multiline = true;
             summaryBox.Size = new Size(580, 117);
             summaryBox.Font = new Font(summaryBox.Font.FontFamily, 11);
             summaryBox.ReadOnly = true;
             summaryBox.ScrollBars = ScrollBars.Vertical;
-            typeLabel.Visible = false;
+            summaryBox.Multiline = true;
+            castLb.Font = new Font(castLb.Font.FontFamily, 10);
             this.searchQuery = searchQuery;
             this.id = id;
             timer1.Start();
@@ -66,13 +68,11 @@ namespace TVMazeApp
         {
             ApiService apiService = new ApiService();
             showDetails = await apiService.GetShowDetails(id);
-            DrawPicture(showDetails.image);
-            showTitleLabel.Text = showDetails.title;
-            showTitleLabel.Font = new Font(showTitleLabel.Font.FontFamily, 22);
-            langLabel.Text = $"Language: {showDetails.language}";
-            premieredLabel.Text =  $"Premiered: {showDetails.premiered}";
-            summaryBox.Text = showDetails.description;
-            typeLabel.Text = $"Type: {showDetails.type}";
+            castMembers = await apiService.GetShowCast(id);
+            episodes = await apiService.GetShowEpisodes(id);
+            SetShowDetails();
+            SetCastDetails();
+            SetEpisodes();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -85,15 +85,11 @@ namespace TVMazeApp
                 ticks = 0;
             }
 
-            if (showDetails != null)
+            if (showDetails != null && castMembers != null && episodes != null)
             {
                 scene.RemoveAll();
                 Invalidate();
-                loadingLabel.Visible = false;
-                langLabel.Visible = true;
-                premieredLabel.Visible = true;
-                summaryBox.Visible = true;
-                typeLabel.Visible = true;
+                SetVisibility(true);
             }
         }
 
@@ -123,5 +119,46 @@ namespace TVMazeApp
             }
         }
 
+        private void SetVisibility(bool visible)
+        {
+            langLabel.Visible = visible;
+            premieredLabel.Visible = visible;
+            summaryBox.Visible = visible;
+            castLabel.Visible = visible;
+            episodesLabel.Visible = visible;
+            castLb.Visible = visible;
+            episodesLb.Visible = visible;
+            typeLabel.Visible = visible;
+            addToFBtn.Visible = visible;
+            addToWlBtn.Visible = visible;
+            loadingLabel.Visible = !visible;
+        }
+
+        private void SetShowDetails()
+        {
+            DrawPicture(showDetails.image);
+            showTitleLabel.Text = showDetails.title;
+            showTitleLabel.Font = new Font(showTitleLabel.Font.FontFamily, 22);
+            langLabel.Text = $"Language: {showDetails.language}";
+            premieredLabel.Text = $"Premiered: {showDetails.premiered}";
+            summaryBox.Text = showDetails.description;
+            typeLabel.Text = $"Type: {showDetails.type}";
+        }
+
+        private void SetCastDetails()
+        {
+            foreach(CastMember castMember in castMembers)
+            {
+                castLb.Items.Add(castMember);
+            }
+        }
+
+        private void SetEpisodes()
+        {
+            foreach(Episode episode in episodes)
+            {
+                episodesLb.Items.Add(episode);
+            }
+        }
     }
 }

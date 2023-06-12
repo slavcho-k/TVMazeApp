@@ -31,7 +31,7 @@ namespace TVMazeApp
         private void recentBtn_Click(object sender, EventArgs e)
         {
             Hide();
-            RecentForm form2 = new RecentForm();
+            WatchlistForm form2 = new WatchlistForm();
             form2.Closed += (s, args) => Close();
             form2.Show();
         }

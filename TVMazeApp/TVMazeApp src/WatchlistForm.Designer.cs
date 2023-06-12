@@ -1,6 +1,6 @@
 ﻿namespace TVMazeApp
 {
-    partial class RecentForm
+    partial class WatchlistForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,22 +33,24 @@
             // 
             // backBtn
             // 
-            this.backBtn.Location = new System.Drawing.Point(12, 12);
+            this.backBtn.Location = new System.Drawing.Point(11, 11);
+            this.backBtn.Margin = new System.Windows.Forms.Padding(2);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(121, 28);
+            this.backBtn.Size = new System.Drawing.Size(91, 23);
             this.backBtn.TabIndex = 2;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // RecentForm
+            // WatchlistForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.backBtn);
-            this.Name = "RecentForm";
-            this.Text = "RecentForm";
+            this.Name = "WatchlistForm";
+            this.Text = "WatchlistForm";
             this.ResumeLayout(false);
 
         }

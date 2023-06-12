@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TVMazeApp
 {
-    public partial class RecentForm : Form
+    public partial class WatchlistForm : Form
     {
-        public RecentForm()
+        public WatchlistForm()
         {
             InitializeComponent();
         }
@@ -20,9 +20,9 @@ namespace TVMazeApp
         private void backBtn_Click(object sender, EventArgs e)
         {
             Hide();
-            Form1 form1 = new Form1();
-            form1.Closed += (s, args) => Close();
-            form1.Show();
+            Form1 form2 = new Form1();
+            form2.Closed += (s, args) => Close();
+            form2.Show();
         }
     }
 }

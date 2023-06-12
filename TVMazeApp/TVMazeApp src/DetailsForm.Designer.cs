@@ -38,6 +38,12 @@
             this.premieredLabel = new System.Windows.Forms.Label();
             this.summaryBox = new System.Windows.Forms.TextBox();
             this.typeLabel = new System.Windows.Forms.Label();
+            this.castLabel = new System.Windows.Forms.Label();
+            this.castLb = new System.Windows.Forms.ListBox();
+            this.episodesLabel = new System.Windows.Forms.Label();
+            this.episodesLb = new System.Windows.Forms.ListBox();
+            this.addToFBtn = new System.Windows.Forms.Button();
+            this.addToWlBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,12 +125,72 @@
             this.typeLabel.TabIndex = 8;
             this.typeLabel.Text = "Type:";
             // 
+            // castLabel
+            // 
+            this.castLabel.AutoSize = true;
+            this.castLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.castLabel.Location = new System.Drawing.Point(114, 265);
+            this.castLabel.Name = "castLabel";
+            this.castLabel.Size = new System.Drawing.Size(56, 25);
+            this.castLabel.TabIndex = 9;
+            this.castLabel.Text = "Cast";
+            // 
+            // castLb
+            // 
+            this.castLb.FormattingEnabled = true;
+            this.castLb.Location = new System.Drawing.Point(12, 293);
+            this.castLb.Name = "castLb";
+            this.castLb.Size = new System.Drawing.Size(271, 147);
+            this.castLb.TabIndex = 10;
+            // 
+            // episodesLabel
+            // 
+            this.episodesLabel.AutoSize = true;
+            this.episodesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.episodesLabel.Location = new System.Drawing.Point(396, 265);
+            this.episodesLabel.Name = "episodesLabel";
+            this.episodesLabel.Size = new System.Drawing.Size(101, 25);
+            this.episodesLabel.TabIndex = 11;
+            this.episodesLabel.Text = "Episodes";
+            // 
+            // episodesLb
+            // 
+            this.episodesLb.FormattingEnabled = true;
+            this.episodesLb.Location = new System.Drawing.Point(307, 293);
+            this.episodesLb.Name = "episodesLb";
+            this.episodesLb.Size = new System.Drawing.Size(271, 147);
+            this.episodesLb.TabIndex = 12;
+            // 
+            // addToFBtn
+            // 
+            this.addToFBtn.Location = new System.Drawing.Point(600, 350);
+            this.addToFBtn.Name = "addToFBtn";
+            this.addToFBtn.Size = new System.Drawing.Size(172, 27);
+            this.addToFBtn.TabIndex = 13;
+            this.addToFBtn.Text = "Add to favorites";
+            this.addToFBtn.UseVisualStyleBackColor = true;
+            // 
+            // addToWlBtn
+            // 
+            this.addToWlBtn.Location = new System.Drawing.Point(600, 411);
+            this.addToWlBtn.Name = "addToWlBtn";
+            this.addToWlBtn.Size = new System.Drawing.Size(172, 27);
+            this.addToWlBtn.TabIndex = 14;
+            this.addToWlBtn.Text = "Add to watchlist";
+            this.addToWlBtn.UseVisualStyleBackColor = true;
+            // 
             // DetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.addToWlBtn);
+            this.Controls.Add(this.addToFBtn);
+            this.Controls.Add(this.episodesLb);
+            this.Controls.Add(this.episodesLabel);
+            this.Controls.Add(this.castLb);
+            this.Controls.Add(this.castLabel);
             this.Controls.Add(this.typeLabel);
             this.Controls.Add(this.summaryBox);
             this.Controls.Add(this.premieredLabel);
@@ -154,5 +220,11 @@
         private System.Windows.Forms.Label premieredLabel;
         private System.Windows.Forms.TextBox summaryBox;
         private System.Windows.Forms.Label typeLabel;
+        private System.Windows.Forms.Label castLabel;
+        private System.Windows.Forms.ListBox castLb;
+        private System.Windows.Forms.Label episodesLabel;
+        private System.Windows.Forms.ListBox episodesLb;
+        private System.Windows.Forms.Button addToFBtn;
+        private System.Windows.Forms.Button addToWlBtn;
     }
 }

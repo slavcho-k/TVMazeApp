@@ -28,7 +28,7 @@ namespace TVMazeApp
 
             foreach(JObject obj in array )
             {
-                shows.Add(ShowCreator(obj));
+                shows.Add(ObjectGeneratorService.ShowCreator(obj));
             }
 
             return shows;
@@ -42,42 +42,41 @@ namespace TVMazeApp
             string json = await response.Content.ReadAsStringAsync();
             dynamic showObject = JsonConvert.DeserializeObject<dynamic>(json);
 
-            return ShowDetailsCreator(showObject);
+            return ObjectGeneratorService.ShowDetailsCreator(showObject);
         }
 
-        public Show ShowCreator(JObject obj)
+        public async Task<List<CastMember>> GetShowCast(string id)
         {
-            int id = (int)obj["show"]["id"];
-            string title = obj["show"]["name"].ToString();
-            double rating = (float)obj["score"];
-            string premiered = obj["show"]["premiered"].ToString();
-            string ended = obj["show"]["ended"].ToString();
-         
-            return new Show(id, title, rating, premiered, ended);
-        }
+            HttpResponseMessage response = await httpClient.GetAsync($"{url}/shows/{id}/cast");
+            response.EnsureSuccessStatusCode();
 
-        public ShowDetails ShowDetailsCreator(dynamic showObject)
-        {
-            int id = showObject["id"];
-            string title = showObject["name"].ToString();
-            string summary = showObject["summary"].ToString();
-            string type = showObject["type"].ToString();
-            string status = showObject["status"].ToString();
-            string premiered = showObject["premiered"].ToString();
-            string url = showObject["url"].ToString();
-            string image;
-            string language = showObject["language"];
-            JToken imageToken = showObject.SelectToken("image.medium");
+            string json = await response.Content.ReadAsStringAsync();
+            JArray array = JArray.Parse(json);
+            List<CastMember> cast = new List<CastMember>();
 
-            if(imageToken != null)
+            foreach (JObject obj in array)
             {
-                image = showObject.image.medium;
-            } else
-            {
-                image = "https://i0.wp.com/theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png?fit=1200%2C800&ssl=1";
+                cast.Add(ObjectGeneratorService.CastMemberCreator(obj));
             }
 
-            return new ShowDetails(id, title, summary, type, status, premiered, url, image, language);
+            return cast;
+        }
+
+        public async Task<List<Episode>> GetShowEpisodes(string id)
+        {
+            HttpResponseMessage response = await httpClient.GetAsync($"{url}/shows/{id}/episodes");
+            response.EnsureSuccessStatusCode();
+
+            string json = await response.Content.ReadAsStringAsync();
+            JArray array = JArray.Parse(json);
+            List<Episode> episodes = new List<Episode>();
+
+            foreach (JObject obj in array)
+            {
+                episodes.Add(ObjectGeneratorService.EpisodeCreator(obj));
+            }
+
+            return episodes;
         }
     }
 }
