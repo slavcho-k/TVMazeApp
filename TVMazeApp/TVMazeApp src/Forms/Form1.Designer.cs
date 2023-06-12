@@ -29,30 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
             this.searchBtn = new System.Windows.Forms.Button();
             this.watchBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.searchTb = new System.Windows.Forms.TextBox();
             this.favBtn = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 64F);
-            this.label1.Location = new System.Drawing.Point(36, 73);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(562, 97);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "TV Maze App";
             // 
             // searchBtn
             // 
-            this.searchBtn.Location = new System.Drawing.Point(439, 191);
+            this.searchBtn.Location = new System.Drawing.Point(429, 193);
             this.searchBtn.Margin = new System.Windows.Forms.Padding(2);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(116, 24);
@@ -86,7 +76,7 @@
             // 
             // searchTb
             // 
-            this.searchTb.Location = new System.Drawing.Point(91, 194);
+            this.searchTb.Location = new System.Drawing.Point(76, 195);
             this.searchTb.Margin = new System.Windows.Forms.Padding(2);
             this.searchTb.Name = "searchTb";
             this.searchTb.Size = new System.Drawing.Size(325, 20);
@@ -109,6 +99,15 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ImageLocation = "https://static.tvmaze.com/images/tvm-header-logo.png";
+            this.pictureBox1.Location = new System.Drawing.Point(177, 79);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(253, 107);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AcceptButton = this.searchBtn;
@@ -116,30 +115,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.favBtn);
             this.Controls.Add(this.searchTb);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.watchBtn);
             this.Controls.Add(this.searchBtn);
-            this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "TVMazeApp";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.Button watchBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.TextBox searchTb;
         private System.Windows.Forms.Button favBtn;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

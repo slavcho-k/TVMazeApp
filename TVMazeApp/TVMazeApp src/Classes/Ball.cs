@@ -20,7 +20,7 @@ namespace TVMazeApp
 
         public void Draw(Graphics g)
         {
-            Brush b = new SolidBrush(Color.Black);
+            Brush b = new SolidBrush(Color.Cyan);
             g.FillEllipse(b, center.X - size, center.Y - size, size * 2, size * 2);
             b.Dispose();
         }

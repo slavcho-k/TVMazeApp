@@ -8,8 +8,8 @@ namespace TVMazeApp
 {
     public class CastMember
     {
-        public string name { get; set; }
-        public string character { get; set; }
+        string name { get; set; }
+        string character { get; set; }
 
         public CastMember(string name, string character)
         {
