@@ -47,5 +47,10 @@ namespace TVMazeApp
         {
             return $"{id} - {title}";
         }
+
+        public String ToStringFavorites()
+        {
+            return $"{id}\t{title}\t{premiered}";
+        }
     }
 }

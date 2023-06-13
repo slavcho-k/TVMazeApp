@@ -28,7 +28,7 @@ namespace TVMazeApp
 
         public override string ToString()
         {
-            return $"{title} - {rating}";
+            return $"{id}\t{title}\t{rating}\t{premiered}\t{ended}";
         }
 
         public override bool Equals(object obj)

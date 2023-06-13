@@ -48,9 +48,17 @@ namespace TVMazeApp
         private void backBtn_Click(object sender, EventArgs e)
         {
             Hide();
-            SearchForm form1 = new SearchForm(searchQuery);
-            form1.Closed += (s, args) => Close();
-            form1.Show();
+            if(!searchQuery.Equals("from favorites"))
+            {
+                SearchForm form1 = new SearchForm(searchQuery);
+                form1.Closed += (s, args) => Close();
+                form1.Show();
+            } else
+            {
+                FavoritesForm form1 = new FavoritesForm();
+                form1.Closed += (s, args) => Close();
+                form1.Show();
+            }
         }
 
         private void GenerateBalls()
