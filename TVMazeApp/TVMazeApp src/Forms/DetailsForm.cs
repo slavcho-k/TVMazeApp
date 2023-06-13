@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection.Emit;
@@ -171,12 +172,12 @@ namespace TVMazeApp
 
         private void addToFBtn_Click(object sender, EventArgs e)
         {
-            FavoritesAndWatchlist.AddShowToFavorites(showDetails);
+            FavoritesAndWatchlist.AddShow(showDetails, FavoritesAndWatchlist.FAVORITES, Form1.FAVORITES_PATH);
         }
 
         private void addToWlBtn_Click(object sender, EventArgs e)
         {
-            FavoritesAndWatchlist.AddShowToWatchlist(showDetails);
+            FavoritesAndWatchlist.AddShow(showDetails, FavoritesAndWatchlist.WATCHLIST, Form1.TOWATCH_PATH);
         }
     }
 }

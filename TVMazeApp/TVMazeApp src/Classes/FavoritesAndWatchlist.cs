@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,32 +14,34 @@ namespace TVMazeApp
         public static List<ShowDetails> FAVORITES = new List<ShowDetails>();
         public static List<ShowDetails> WATCHLIST = new List<ShowDetails>();
         public static List<ShowDetails> WATCHEDLIST = new List<ShowDetails>();
-
-        public static void AddShowToFavorites(ShowDetails showDetails)
+        
+        public static void AddShow(ShowDetails showDetails, List<ShowDetails> list, string path)
         {
             bool found = false;
-            foreach(ShowDetails show in FAVORITES)
+            foreach(ShowDetails show in list)
             {
                 if (show.id == showDetails.id) { found = true; break; }
             }
 
-            if (!found) { FAVORITES.Add(showDetails); }
+            if (!found)
+            {
+                list.Add(showDetails);
+                Save(path, list);
+            }
         }
 
-        public static void AddShowToWatchlist(ShowDetails showDetails)
+        public static void RemoveShow(ShowDetails showDetails, List<ShowDetails> list, string path)
         {
-            bool found = false;
-            foreach (ShowDetails show in WATCHLIST)
-            {
-                if (show.id == showDetails.id) { found = true; break; }
-            }
+            list.Remove(showDetails); 
+            Save(path, list);
+        }
 
-            foreach(ShowDetails show in WATCHEDLIST)
-            {
-                if (show.id == showDetails.id) { found = true; break; }
-            }
-
-            if (!found) { WATCHLIST.Add(showDetails); }
+        private static void Save(string path, List<ShowDetails> list)
+        {
+            FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+            IFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(fs, list);
+            fs.Close();
         }
     }
 }

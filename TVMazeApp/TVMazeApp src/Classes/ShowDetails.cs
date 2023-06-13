@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TVMazeApp
 {
+    [Serializable]
     public class ShowDetails
     {
         public int id { get; set; }

@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TVMazeApp
 {
+    [Serializable]
     public partial class FavoritesForm : Form
     {
-        List<ShowDetails> favorites;
 
         public FavoritesForm()
         {
@@ -30,8 +33,7 @@ namespace TVMazeApp
 
         private void FavoritesForm_Load(object sender, EventArgs e)
         {
-            favorites = FavoritesAndWatchlist.FAVORITES;
-            foreach (ShowDetails show in favorites)
+            foreach (ShowDetails show in FavoritesAndWatchlist.FAVORITES)
             {
                 favoritesLb.Items.Add(show);
             }
@@ -43,13 +45,13 @@ namespace TVMazeApp
             {
                 ShowDetails toDelete = favoritesLb.SelectedItem as ShowDetails;
                 favoritesLb.Items.Remove(toDelete);
-                FavoritesAndWatchlist.FAVORITES.Remove(toDelete);
+                FavoritesAndWatchlist.RemoveShow(toDelete, FavoritesAndWatchlist.FAVORITES, Form1.FAVORITES_PATH);
             }
         }
 
         private void showPageBtn_Click(object sender, EventArgs e)
         {
-            if(favoritesLb.SelectedIndex != -1)
+            if (favoritesLb.SelectedIndex != -1)
             {
                 ShowDetails show = favoritesLb.SelectedItem as ShowDetails;
                 Hide();

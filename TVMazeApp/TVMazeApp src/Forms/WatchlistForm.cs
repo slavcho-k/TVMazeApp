@@ -32,15 +32,15 @@ namespace TVMazeApp
 
         private void WatchlistForm_Load(object sender, EventArgs e)
         {
-            watchList = FavoritesAndWatchlist.WATCHLIST;
-            watchedList = FavoritesAndWatchlist.WATCHEDLIST;
+            /*watchList = FavoritesAndWatchlist.WATCHLIST;
+            watchedList = FavoritesAndWatchlist.WATCHEDLIST;*/
 
-            foreach(ShowDetails show in watchList)
+            foreach(ShowDetails show in FavoritesAndWatchlist.WATCHLIST)
             {
                 toWatchLb.Items.Add(show);
             }
 
-            foreach(ShowDetails show in watchedList)
+            foreach(ShowDetails show in FavoritesAndWatchlist.WATCHEDLIST)
             {
                 watchedLb.Items.Add(show);
             }
@@ -54,8 +54,10 @@ namespace TVMazeApp
                 toWatchLb.Items.Remove(selected);
                 watchedLb.Items.Add(selected);
 
-                FavoritesAndWatchlist.WATCHLIST.Remove(selected);
-                FavoritesAndWatchlist.WATCHEDLIST.Add(selected);
+                //FavoritesAndWatchlist.WATCHLIST.Remove(selected);
+                FavoritesAndWatchlist.RemoveShow(selected, FavoritesAndWatchlist.WATCHLIST, Form1.TOWATCH_PATH);
+                //FavoritesAndWatchlist.WATCHEDLIST.Add(selected);
+                FavoritesAndWatchlist.AddShow(selected, FavoritesAndWatchlist.WATCHEDLIST, Form1.WATCHED_PATH);
             }
         }
 
@@ -67,8 +69,10 @@ namespace TVMazeApp
                 watchedLb.Items.Remove(selected);
                 toWatchLb.Items.Add(selected);
 
-                FavoritesAndWatchlist.WATCHEDLIST.Remove(selected);
-                FavoritesAndWatchlist.AddShowToWatchlist(selected);
+                //FavoritesAndWatchlist.WATCHEDLIST.Remove(selected);
+                FavoritesAndWatchlist.RemoveShow(selected, FavoritesAndWatchlist.WATCHEDLIST, Form1.WATCHED_PATH);
+                //FavoritesAndWatchlist.WATCHLIST.Add(selected);
+                FavoritesAndWatchlist.AddShow(selected, FavoritesAndWatchlist.WATCHLIST, Form1.TOWATCH_PATH);
             }
         }
 
@@ -88,14 +92,16 @@ namespace TVMazeApp
             {
                 ShowDetails selected = toWatchLb.SelectedItem as ShowDetails;
                 toWatchLb.Items.Remove(selected);
-                FavoritesAndWatchlist.WATCHLIST.Remove(selected);
+                //FavoritesAndWatchlist.WATCHLIST.Remove(selected);
+                FavoritesAndWatchlist.RemoveShow(selected, FavoritesAndWatchlist.WATCHLIST, Form1.TOWATCH_PATH);
             }
 
             if(watchedLb.SelectedIndex != -1)
             {
                 ShowDetails selected = watchedLb.SelectedItem as ShowDetails;
                 watchedLb.Items.Remove(selected);
-                FavoritesAndWatchlist.WATCHEDLIST.Remove(selected);
+                //FavoritesAndWatchlist.WATCHEDLIST.Remove(selected);
+                FavoritesAndWatchlist.RemoveShow(selected, FavoritesAndWatchlist.WATCHEDLIST, Form1.WATCHED_PATH);
             }
         }
     }
